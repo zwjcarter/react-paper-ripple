@@ -24,6 +24,7 @@ class PaperRipple extends Component {
     tag: PropTypes.string,
     center: PropTypes.bool,
     color: PropTypes.string,
+    disabled: PropTypes.bool,
     opacity: PropTypes.number,
     growRatio: PropTypes.number,
     rmConfig: React.PropTypes.objectOf(React.PropTypes.number)
@@ -33,6 +34,7 @@ class PaperRipple extends Component {
     tag: 'div',
     center: false,
     color: '#fff',
+    disabled: false,
     opacity: 0.25,
     growRatio: 2.25,
     rmConfig: { stiffness: 18, damping: 6 }
@@ -129,6 +131,9 @@ class PaperRipple extends Component {
   }
 
   _handleEvent = (e) => {
+    if (this.props.disabled)
+        return;
+      
     const eventType = eventTypes[e.type]
     const propEvent = this.props[`on${eventType}`]
 
