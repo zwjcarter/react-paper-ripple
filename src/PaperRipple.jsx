@@ -33,7 +33,7 @@ class PaperRipple extends Component {
   static defaultProps = {
     tag: 'div',
     center: false,
-    color: '#fff',
+    color: 'currentColor',
     disabled: false,
     opacity: 0.25,
     growRatio: 2.25,
